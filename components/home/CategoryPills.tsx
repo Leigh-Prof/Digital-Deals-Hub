@@ -12,7 +12,7 @@ interface CategoryPillsProps {
 }
 
 function DynamicIcon({ name, ...props }: { name: string } & LucideProps) {
-  const Icon = (Icons as Record<string, React.ComponentType<LucideProps>>)[
+  const Icon = (Icons as unknown as Record<string, React.ComponentType<LucideProps>>)[
     name.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')
   ]
   return Icon ? <Icon {...props} /> : null
