@@ -9,7 +9,23 @@ interface ProductCardProps {
   product: Product
 }
 
+const categoryColors: Record<string, string> = {
+  marketing: 'from-violet-600 to-purple-700',
+  ai: 'from-cyan-500 to-blue-600',
+  design: 'from-purple-500 to-indigo-600',
+  ebooks: 'from-emerald-500 to-green-600',
+  freelancing: 'from-orange-500 to-amber-600',
+  productivity: 'from-red-500 to-rose-600',
+  'social-media': 'from-pink-500 to-fuchsia-600',
+  'back-to-school': 'from-amber-500 to-yellow-600',
+  kids: 'from-teal-500 to-emerald-600',
+  learning: 'from-blue-600 to-indigo-700',
+}
+
 export function ProductCard({ product }: ProductCardProps) {
+  const gradient = categoryColors[product.category] ?? 'from-slate-600 to-slate-700'
+  const categoryLabel = product.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+
   return (
     <motion.div
       whileHover={{ scale: 1.02, boxShadow: '0 12px 32px 0 rgba(15,23,42,0.12)' }}
@@ -17,16 +33,24 @@ export function ProductCard({ product }: ProductCardProps) {
       className="group bg-card-bg dark:bg-slate-900 rounded-card shadow-card border border-slate-100 dark:border-slate-800 overflow-hidden flex flex-col"
     >
       {/* Thumbnail */}
-      <div className="relative w-full aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800">
-        <img
-          src={product.thumbnail_url || 'https://placehold.co/800x450/2563EB/FFFFFF?text=Digital+Product'}
-          alt={product.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          loading="lazy"
-        />
+      <div className="relative w-full aspect-video overflow-hidden">
+        {product.thumbnail_url ? (
+          <img
+            src={product.thumbnail_url}
+            alt={product.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+        ) : (
+          <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-end p-4 group-hover:scale-105 transition-transform duration-300`}>
+            <span className="text-white font-bold text-lg leading-tight line-clamp-2 drop-shadow">
+              {product.title}
+            </span>
+          </div>
+        )}
         {/* Category badge */}
         <span className="absolute top-3 left-3 px-2 py-1 rounded-badge text-xs font-semibold text-white gradient-brand">
-          {product.category.replace('-', ' ').replace(/\b\w/g, c => c.toUpperCase())}
+          {categoryLabel}
         </span>
       </div>
 
