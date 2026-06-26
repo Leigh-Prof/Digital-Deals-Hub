@@ -1,0 +1,196 @@
+-- Seed categories
+insert into categories (name, slug, icon, color) values
+  ('Business', 'business', 'briefcase', '#2563EB'),
+  ('Marketing', 'marketing', 'megaphone', '#7C3AED'),
+  ('AI & Automation', 'ai', 'bot', '#06B6D4'),
+  ('Canva Templates', 'canva', 'layout-template', '#F59E0B'),
+  ('Ebooks', 'ebooks', 'book-open', '#22C55E'),
+  ('Productivity', 'productivity', 'zap', '#EF4444'),
+  ('Finance', 'finance', 'trending-up', '#10B981'),
+  ('Social Media', 'social-media', 'share-2', '#EC4899'),
+  ('Design', 'design', 'pen-tool', '#8B5CF6'),
+  ('Freelancing', 'freelancing', 'laptop', '#F97316')
+on conflict (slug) do nothing;
+
+-- Seed products (15 representative items)
+insert into products (slug, title, description, short_description, google_drive_url, category, tags, file_type, featured, thumbnail_url) values
+(
+  'ultimate-business-plan-template',
+  'Ultimate Business Plan Template',
+  'A comprehensive, professionally designed business plan template covering executive summary, market analysis, financial projections, and operational strategy. Fully editable with step-by-step guidance for each section. Perfect for startups and established businesses seeking funding or clarity.',
+  'Professionally designed business plan template with financial projections and market analysis.',
+  'https://drive.google.com/drive/folders/example1',
+  'business',
+  ARRAY['PDF', 'Template', 'Editable'],
+  'PDF',
+  true,
+  'https://placehold.co/800x450/2563EB/FFFFFF?text=Business+Plan'
+),
+(
+  'facebook-ads-masterclass-guide',
+  'Facebook Ads Masterclass Guide',
+  'A complete guide to running profitable Facebook ad campaigns. Covers audience targeting, creative best practices, budget optimization, retargeting strategies, and campaign scaling. Includes real campaign examples and swipe files.',
+  'Complete guide to running profitable Facebook ads with swipe files and real examples.',
+  'https://drive.google.com/drive/folders/example2',
+  'marketing',
+  ARRAY['PDF', 'Guide', 'Swipe File'],
+  'PDF',
+  true,
+  'https://placehold.co/800x450/7C3AED/FFFFFF?text=FB+Ads+Guide'
+),
+(
+  'chatgpt-prompt-engineering-toolkit',
+  'ChatGPT Prompt Engineering Toolkit',
+  'Over 500 battle-tested ChatGPT prompts organized by use case: content creation, sales, marketing, coding, research, and business strategy. Includes a prompt framework guide for crafting your own high-performance prompts.',
+  '500+ ChatGPT prompts for content, sales, coding, and business — plus a framework guide.',
+  'https://drive.google.com/drive/folders/example3',
+  'ai',
+  ARRAY['PDF', 'Prompt', 'Toolkit'],
+  'PDF',
+  true,
+  'https://placehold.co/800x450/06B6D4/FFFFFF?text=AI+Prompts'
+),
+(
+  'instagram-content-calendar-canva',
+  'Instagram Content Calendar — Canva Template',
+  'A stunning 30-day Instagram content calendar built in Canva. Includes post templates, story designs, reel covers, and caption frameworks for consistent and beautiful content. Fully customizable colors, fonts, and branding.',
+  '30-day Canva content calendar with post templates, stories, reels, and captions.',
+  'https://drive.google.com/drive/folders/example4',
+  'canva',
+  ARRAY['Canva', 'Template', 'Editable'],
+  'Canva',
+  true,
+  'https://placehold.co/800x450/F59E0B/FFFFFF?text=Canva+Calendar'
+),
+(
+  'freelancers-complete-starter-kit',
+  'Freelancer''s Complete Starter Kit',
+  'Everything a new or growing freelancer needs: client contract templates, invoice templates, proposal templates, rate calculator spreadsheet, client onboarding checklist, and a 90-day freelance roadmap.',
+  'Client contracts, invoices, proposals, and a 90-day roadmap for freelancers.',
+  'https://drive.google.com/drive/folders/example5',
+  'freelancing',
+  ARRAY['ZIP', 'Template', 'Spreadsheet', 'Guide'],
+  'ZIP',
+  true,
+  'https://placehold.co/800x450/F97316/FFFFFF?text=Freelancer+Kit'
+),
+(
+  'digital-marketing-ebook-2024',
+  'Digital Marketing Mastery Ebook 2024',
+  'A 120-page comprehensive ebook covering SEO, social media marketing, email marketing, paid advertising, content strategy, and analytics. Written for entrepreneurs, marketers, and business owners who want to grow their online presence.',
+  '120-page ebook on SEO, social media, email marketing, and paid ads.',
+  'https://drive.google.com/drive/folders/example6',
+  'ebooks',
+  ARRAY['PDF', 'Ebook', 'Guide'],
+  'PDF',
+  false,
+  'https://placehold.co/800x450/22C55E/FFFFFF?text=Marketing+Ebook'
+),
+(
+  'personal-finance-tracker-excel',
+  'Personal Finance Tracker — Excel',
+  'A powerful Excel spreadsheet for tracking income, expenses, savings goals, investments, and net worth. Includes automated charts, monthly summaries, and a budget planner. Works with Excel and Google Sheets.',
+  'Track income, expenses, savings, and net worth with automated charts.',
+  'https://drive.google.com/drive/folders/example7',
+  'finance',
+  ARRAY['Spreadsheet', 'Excel', 'Editable'],
+  'XLSX',
+  false,
+  'https://placehold.co/800x450/10B981/FFFFFF?text=Finance+Tracker'
+),
+(
+  'social-media-growth-playbook',
+  'Social Media Growth Playbook',
+  'A step-by-step playbook for growing from 0 to 10,000 followers on Instagram, TikTok, and Facebook. Covers content strategy, posting schedules, engagement tactics, hashtag research, and monetization strategies.',
+  'Grow from 0 to 10K followers on Instagram, TikTok, and Facebook.',
+  'https://drive.google.com/drive/folders/example8',
+  'social-media',
+  ARRAY['PDF', 'Guide', 'Playbook'],
+  'PDF',
+  false,
+  'https://placehold.co/800x450/EC4899/FFFFFF?text=Social+Playbook'
+),
+(
+  'notion-life-os-template',
+  'Notion Life OS Template',
+  'A complete life operating system built in Notion. Includes dashboards for goals, habits, projects, finances, health, and weekly reviews. Designed to help you manage every area of your life from one organized workspace.',
+  'Complete Notion dashboard for goals, habits, projects, finances, and weekly reviews.',
+  'https://drive.google.com/drive/folders/example9',
+  'productivity',
+  ARRAY['Notion', 'Template', 'Editable'],
+  'Notion',
+  false,
+  'https://placehold.co/800x450/EF4444/FFFFFF?text=Notion+OS'
+),
+(
+  'canva-brand-kit-template',
+  'Canva Brand Kit Template',
+  'Build a cohesive brand identity in Canva. Includes logo variations, color palette guide, typography guide, business card, letterhead, social media profile and cover templates, and a brand style guide document.',
+  'Complete Canva brand kit: logos, colors, fonts, social media, and business card templates.',
+  'https://drive.google.com/drive/folders/example10',
+  'canva',
+  ARRAY['Canva', 'Template', 'Branding'],
+  'Canva',
+  false,
+  'https://placehold.co/800x450/8B5CF6/FFFFFF?text=Brand+Kit'
+),
+(
+  'seo-audit-checklist',
+  'SEO Audit Checklist & Guide',
+  'A 100-point SEO audit checklist covering technical SEO, on-page optimization, content quality, backlink analysis, and Core Web Vitals. Includes a Google Sheets tracker and a step-by-step guide for fixing each issue.',
+  '100-point SEO audit checklist with Google Sheets tracker and fix guide.',
+  'https://drive.google.com/drive/folders/example11',
+  'marketing',
+  ARRAY['PDF', 'Spreadsheet', 'Checklist'],
+  'ZIP',
+  false,
+  'https://placehold.co/800x450/7C3AED/FFFFFF?text=SEO+Audit'
+),
+(
+  'startup-pitch-deck-template',
+  'Startup Pitch Deck Template',
+  'A sleek, investor-ready pitch deck template with 20 professionally designed slides. Covers problem, solution, market size, traction, team, financials, and ask. Available in PowerPoint and Google Slides formats.',
+  '20-slide investor pitch deck template in PowerPoint and Google Slides.',
+  'https://drive.google.com/drive/folders/example12',
+  'business',
+  ARRAY['Template', 'Editable', 'ZIP'],
+  'ZIP',
+  false,
+  'https://placehold.co/800x450/2563EB/FFFFFF?text=Pitch+Deck'
+),
+(
+  'ai-tools-directory-2024',
+  'AI Tools Directory 2024',
+  'A curated directory of 200+ AI tools organized by category: writing, image generation, video, audio, coding, marketing, and productivity. Each tool includes a description, pricing tier, and use case recommendation.',
+  'Curated list of 200+ AI tools with descriptions, pricing, and use cases.',
+  'https://drive.google.com/drive/folders/example13',
+  'ai',
+  ARRAY['PDF', 'Guide', 'Directory'],
+  'PDF',
+  false,
+  'https://placehold.co/800x450/06B6D4/FFFFFF?text=AI+Directory'
+),
+(
+  'copywriting-swipe-file',
+  'Copywriting Swipe File — 100 Headlines',
+  'A collection of 100 high-converting headlines, 50 email subject lines, 30 CTA templates, and 20 sales page frameworks. All organized and ready to adapt for your own products, ads, and content.',
+  '100 headlines, 50 email subjects, 30 CTAs, and 20 sales page frameworks.',
+  'https://drive.google.com/drive/folders/example14',
+  'marketing',
+  ARRAY['PDF', 'Swipe File', 'Templates'],
+  'PDF',
+  false,
+  'https://placehold.co/800x450/7C3AED/FFFFFF?text=Swipe+File'
+),
+(
+  'graphic-design-resources-bundle',
+  'Graphic Design Resources Bundle',
+  'A massive bundle including 500+ Canva elements, 50 color palettes, 30 font pairings guide, mockup templates, icon packs, and a design principles quick reference. Perfect for designers and non-designers alike.',
+  '500+ Canva elements, 50 color palettes, mockups, icons, and a design guide.',
+  'https://drive.google.com/drive/folders/example15',
+  'design',
+  ARRAY['ZIP', 'Bundle', 'Canva', 'Template'],
+  'ZIP',
+  false,
+  'https://placehold.co/800x450/8B5CF6/FFFFFF?text=Design+Bundle'
+);
