@@ -12,7 +12,7 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -4, boxShadow: '0 12px 32px 0 rgba(15,23,42,0.12)' }}
+      whileHover={{ scale: 1.02, boxShadow: '0 12px 32px 0 rgba(15,23,42,0.12)' }}
       transition={{ duration: 0.2 }}
       className="group bg-card-bg dark:bg-slate-900 rounded-card shadow-card border border-slate-100 dark:border-slate-800 overflow-hidden flex flex-col"
     >
