@@ -42,8 +42,8 @@ export function ProductCard({ product }: ProductCardProps) {
             loading="lazy"
           />
         ) : (
-          <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-end p-4 group-hover:scale-105 transition-transform duration-300`}>
-            <span className="text-white font-bold text-lg leading-tight line-clamp-2 drop-shadow">
+          <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center p-4 group-hover:scale-105 transition-transform duration-300`}>
+            <span className="text-white font-bold text-lg leading-tight text-center drop-shadow">
               {product.title}
             </span>
           </div>
