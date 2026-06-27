@@ -12,6 +12,8 @@ import Image from 'next/image'
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 
+const RAKET_URL = 'https://www.raket.ph/johnraleighrosalita/products/sulit-bundle-50-premium-digital-products-instant-download-resell-rights-included?src=share'
+
 const TIMER_KEY = 'ddh_landing_timer_start'
 const TIMER_DURATION = 15 * 60 // 15 minutes in seconds
 
@@ -91,7 +93,7 @@ const SOLUTIONS = [
   { icon: Users, text: 'Beginner friendly — no experience needed' },
   { icon: ShieldCheck, text: 'Carefully curated — only the best materials' },
   { icon: Smartphone, text: 'Works on phone, tablet, or laptop' },
-  { icon: Zap, text: 'Huge value at one affordable price' },
+  { icon: TrendingUp, text: 'Ever-growing — new products added regularly, yours for life' },
 ]
 
 const TESTIMONIALS = [
@@ -103,12 +105,13 @@ const TESTIMONIALS = [
 ]
 
 const FAQS = [
-  { q: 'How do I receive access after payment?', a: 'After you send your payment proof and email address via GCash or bank transfer, we will send you the download link within a few hours during business hours.' },
-  { q: 'Is this a one-time payment for lifetime access?', a: 'Yes! You pay once and receive lifetime access to all included materials. No subscriptions, no hidden fees.' },
-  { q: 'How fast is delivery?', a: 'We process orders as fast as possible — typically within 1–4 hours. Orders sent outside business hours are processed the next morning.' },
-  { q: 'Can beginners use these products?', a: 'Absolutely. All materials are organized and labeled clearly. No technical skill is required to use them.' },
-  { q: 'Can I access it on my phone or tablet?', a: 'Yes. All files are digital and accessible on any device with internet access.' },
-  { q: 'What payment methods are accepted?', a: 'We currently accept GCash and major bank transfers (BDO, BPI, UnionBank). Additional payment methods may be added in the future.' },
+  { q: 'How do I receive access after payment?', a: 'After clicking the button, you will be taken to our secure checkout on Raket.ph. Once payment is completed, your download link is sent to you instantly and automatically — no waiting, no manual steps.' },
+  { q: 'Is this a one-time payment for lifetime access?', a: 'Yes! You pay ₱699 once and receive lifetime access to all included materials — plus any new products we add in the future. No subscriptions, no hidden fees, ever.' },
+  { q: 'Will new products be added to my library?', a: 'Absolutely. We regularly add new digital products to the collection. Once you purchase, every new addition is automatically yours — your library keeps growing at no extra cost.' },
+  { q: 'How fast is delivery?', a: 'Delivery is instant and automatic through Raket.ph. As soon as your payment is confirmed, your download link is sent to your email right away.' },
+  { q: 'Can beginners use these products?', a: 'Yes! All materials are organized and labeled clearly by category. No technical skill or experience is needed to start using them.' },
+  { q: 'Is it safe to pay through Raket.ph?', a: 'Yes. Raket.ph is a trusted and established platform for digital products in the Philippines. Your payment is processed securely and your access is delivered automatically.' },
+  { q: 'Can I access it on my phone or tablet?', a: 'Yes. All files are digital and accessible on any device — phone, tablet, or laptop — with internet access.' },
 ]
 
 // ─── sub-components ──────────────────────────────────────────────────────────
@@ -136,7 +139,9 @@ function CTAButton({ size = 'md', children }: { size?: 'md' | 'lg'; children: Re
   const sizes = { md: 'px-7 py-3.5 text-base', lg: 'px-10 py-5 text-xl' }
   return (
     <motion.a
-      href="#payment"
+      href={RAKET_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       className={`${base} ${sizes[size]}`}
@@ -237,7 +242,7 @@ export default function LandingPage() {
         {/* Header bar */}
         <div className="relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto w-full">
           <Image src="/logo.jpg" alt="Digital Deals Hub" width={120} height={40} className="h-10 w-auto rounded-lg" />
-          <a href="#payment" className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white border border-white/20 bg-white/10 backdrop-blur hover:bg-white/20 transition-colors">
+          <a href={RAKET_URL} target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white border border-white/20 bg-white/10 backdrop-blur hover:bg-white/20 transition-colors">
             Get Access — ₱699
           </a>
         </div>
@@ -299,7 +304,7 @@ export default function LandingPage() {
               { icon: '✔', text: 'Lifetime Access' },
               { icon: '⚡', text: 'Instant Delivery' },
               { icon: '🎯', text: 'Beginner Friendly' },
-              { icon: '📦', text: '35+ Products Included' },
+              { icon: '📦', text: '50+ Products & Growing' },
             ].map(b => (
               <span key={b.text} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white/90 text-sm font-medium backdrop-blur">
                 {b.icon} {b.text}
@@ -432,7 +437,7 @@ export default function LandingPage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900" style={{ fontFamily: 'Manrope, sans-serif' }}>
               Everything You&apos;ll Get
             </h2>
-            <p className="text-slate-500 mt-3 max-w-xl mx-auto">10 powerful categories. 35+ premium products. All organized and ready to use.</p>
+            <p className="text-slate-500 mt-3 max-w-xl mx-auto">10 powerful categories. 50+ premium products — and we keep adding more. All organized and ready to use.</p>
           </FadeUp>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-16">
@@ -478,6 +483,7 @@ export default function LandingPage() {
                 🔥 YOU SAVE ₱4,281 TODAY
               </motion.div>
               <p className="text-blue-200/60 text-xs mt-4">*Estimated individual market values for comparison purposes.</p>
+              <p className="text-green-300 text-sm font-medium mt-3">✨ New products added regularly — all yours at no extra cost.</p>
             </div>
           </FadeUp>
         </div>
@@ -690,23 +696,23 @@ export default function LandingPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-          SECTION 11 — PAYMENT
+          SECTION 11 — HOW TO GET ACCESS
       ══════════════════════════════════════════════════════════════════ */}
       <section id="payment" className="py-24 px-5 bg-slate-50">
         <div className="max-w-4xl mx-auto">
           <FadeUp className="text-center mb-16">
             <SectionLabel>How to Order</SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900" style={{ fontFamily: 'Manrope, sans-serif' }}>
-              How to Get Instant Access
+              3 Simple Steps to Get Access
             </h2>
-            <p className="text-slate-500 mt-3">Simple. Fast. Secure.</p>
+            <p className="text-slate-500 mt-3">Fully automated. Instant. Secure via Raket.ph.</p>
           </FadeUp>
 
           <div className="grid md:grid-cols-3 gap-6 mb-14">
             {[
-              { step: '1', title: 'Send Payment', desc: 'Send ₱699 via GCash to the number below. You may also use bank transfer (BDO, BPI, UnionBank).', icon: '💳' },
-              { step: '2', title: 'Send Your Details', desc: 'Message us your email address and a screenshot of your payment proof.', icon: '📨' },
-              { step: '3', title: 'Receive Lifetime Access', desc: 'We will send your download link within a few hours. Start using your products right away!', icon: '🎉' },
+              { step: '1', title: 'Click the Button', desc: 'Tap any "Get Access" button on this page. You will be taken directly to the secure checkout on Raket.ph.', icon: '👆' },
+              { step: '2', title: 'Complete Payment', desc: 'Pay securely through Raket.ph using GCash, credit/debit card, or other available methods. Fast and safe.', icon: '💳' },
+              { step: '3', title: 'Instant Access Delivered', desc: 'Your download link is sent to your email automatically the moment your payment is confirmed. No waiting!', icon: '🎉' },
             ].map(({ step, title, desc, icon }) => (
               <FadeUp key={step} delay={Number(step) * 0.1}>
                 <div className="bg-white rounded-3xl p-7 border border-slate-100 shadow-sm text-center">
@@ -721,20 +727,27 @@ export default function LandingPage() {
             ))}
           </div>
 
-          {/* GCash info */}
+          {/* Raket.ph trust badge */}
           <FadeUp delay={0.4}>
-            <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm flex flex-col md:flex-row">
-              <div className="flex-1 p-8 flex flex-col justify-center">
-                <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1">GCash Number</p>
-                <p className="text-4xl font-extrabold text-slate-900 mb-1" style={{ fontFamily: 'Manrope, sans-serif' }}>09XX-XXX-XXXX</p>
-                <p className="text-slate-500 text-sm mb-4">Account Name: <strong>Digital Deals Hub</strong></p>
-                <p className="text-xs text-slate-400">Replace the number above with your real GCash number. After payment, message us on Facebook with your receipt and email address.</p>
+            <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm p-8 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0" style={{ background: 'linear-gradient(135deg,#f97316,#ea580c)' }}>
+                <ShieldCheck size={32} className="text-white" />
               </div>
-              <div className="md:w-52 bg-slate-50 border-t md:border-t-0 md:border-l border-slate-200 flex items-center justify-center p-8">
-                <div className="w-32 h-32 rounded-2xl bg-slate-200 flex items-center justify-center text-slate-400 text-xs text-center font-medium">
-                  QR Code<br />Placeholder
-                </div>
+              <div>
+                <p className="font-bold text-slate-900 text-lg mb-1">Secured & Processed by Raket.ph</p>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  Raket.ph is one of the Philippines&apos; most trusted platforms for digital products. Your payment is processed securely, and your access is delivered instantly and automatically — no need to message anyone or wait for a reply.
+                </p>
               </div>
+              <a
+                href={RAKET_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm shadow-md hover:opacity-90 transition-opacity"
+                style={{ background: 'linear-gradient(135deg,#f97316,#ea580c)' }}
+              >
+                Buy on Raket.ph →
+              </a>
             </div>
           </FadeUp>
         </div>
@@ -751,7 +764,7 @@ export default function LandingPage() {
               Your Shortcut Starts Today.
             </h2>
             <p className="text-blue-200 text-lg mb-6 max-w-xl mx-auto">
-              Thousands of pesos worth of carefully curated digital resources in one organized library.
+              50+ premium digital products in one organized library — and we keep adding more. Pay once. Get everything, forever.
             </p>
             <p className="text-yellow-400 text-6xl font-extrabold mb-10" style={{ fontFamily: 'Manrope, sans-serif' }}>₱699</p>
           </FadeUp>
